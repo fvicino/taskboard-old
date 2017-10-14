@@ -1,0 +1,167 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit http://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <LastUsedBuildConfiguration>Release</LastUsedBuildConfiguration>
+    <LastUsedPlatform>Any CPU</LastUsedPlatform>
+    <TimeStampOfAssociatedLegacyPublishXmlFile>2012-05-04T14:18:21.3750242+10:00</TimeStampOfAssociatedLegacyPublishXmlFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <File Include="App_Data/ViewState.xml">
+      <publishTime>06/29/2012 16:55:58</publishTime>
+    </File>
+    <File Include="bin/TaskBoard.dll">
+      <publishTime>08/23/2012 20:04:02</publishTime>
+    </File>
+    <File Include="bin/TaskBoard.pdb">
+      <publishTime>05/04/2012 14:18:20</publishTime>
+    </File>
+    <File Include="Content/bug.png">
+      <publishTime>08/23/2012 19:56:22</publishTime>
+    </File>
+    <File Include="Content/Site.css">
+      <publishTime>08/23/2012 20:12:31</publishTime>
+    </File>
+    <File Include="Content/themes/base/images/ui-bg_flat_0_aaaaaa_40x100.png">
+      <publishTime>02/13/2012 12:55:15</publishTime>
+    </File>
+    <File Include="Content/themes/base/images/ui-bg_flat_75_ffffff_40x100.png">
+      <publishTime>02/13/2012 12:55:15</publishTime>
+    </File>
+    <File Include="Content/themes/base/images/ui-bg_glass_55_fbf9ee_1x400.png">
+      <publishTime>02/13/2012 12:55:15</publishTime>
+    </File>
+    <File Include="Content/themes/base/images/ui-bg_glass_65_ffffff_1x400.png">
+      <publishTime>02/13/2012 12:55:16</publishTime>
+    </File>
+    <File Include="Content/themes/base/images/ui-bg_glass_75_dadada_1x400.png">
+      <publishTime>02/13/2012 12:55:16</publishTime>
+    </File>
+    <File Include="Content/themes/base/images/ui-bg_glass_75_e6e6e6_1x400.png">
+      <publishTime>02/13/2012 12:55:16</publishTime>
+    </File>
+    <File Include="Content/themes/base/images/ui-bg_glass_95_fef1ec_1x400.png">
+      <publishTime>02/13/2012 12:55:21</publishTime>
+    </File>
+    <File Include="Content/themes/base/images/ui-bg_highlight-soft_75_cccccc_1x100.png">
+      <publishTime>02/13/2012 12:55:21</publishTime>
+    </File>
+    <File Include="Content/themes/base/images/ui-icons_222222_256x240.png">
+      <publishTime>02/13/2012 12:55:21</publishTime>
+    </File>
+    <File Include="Content/themes/base/images/ui-icons_2e83ff_256x240.png">
+      <publishTime>02/13/2012 12:55:21</publishTime>
+    </File>
+    <File Include="Content/themes/base/images/ui-icons_454545_256x240.png">
+      <publishTime>02/13/2012 12:55:22</publishTime>
+    </File>
+    <File Include="Content/themes/base/images/ui-icons_888888_256x240.png">
+      <publishTime>02/13/2012 12:55:22</publishTime>
+    </File>
+    <File Include="Content/themes/base/images/ui-icons_cd0a0a_256x240.png">
+      <publishTime>02/13/2012 12:55:23</publishTime>
+    </File>
+    <File Include="Content/themes/base/jquery-ui.css">
+      <publishTime>02/13/2012 12:55:15</publishTime>
+    </File>
+    <File Include="Global.asax">
+      <publishTime>02/13/2012 12:55:15</publishTime>
+    </File>
+    <File Include="Scripts/DragDrop.js">
+      <publishTime>02/13/2012 12:55:23</publishTime>
+    </File>
+    <File Include="Scripts/jquery-1.4.4-vsdoc.js">
+      <publishTime>02/13/2012 12:55:24</publishTime>
+    </File>
+    <File Include="Scripts/jquery-1.4.4.js">
+      <publishTime>02/13/2012 12:55:24</publishTime>
+    </File>
+    <File Include="Scripts/jquery-1.4.4.min.js">
+      <publishTime>06/28/2012 17:03:15</publishTime>
+    </File>
+    <File Include="Scripts/jquery-ui.js">
+      <publishTime>02/13/2012 12:55:24</publishTime>
+    </File>
+    <File Include="Scripts/jquery-ui.min.js">
+      <publishTime>02/13/2012 12:55:24</publishTime>
+    </File>
+    <File Include="Scripts/jquery.unobtrusive-ajax.js">
+      <publishTime>02/13/2012 12:55:23</publishTime>
+    </File>
+    <File Include="Scripts/jquery.unobtrusive-ajax.min.js">
+      <publishTime>02/13/2012 12:55:23</publishTime>
+    </File>
+    <File Include="Scripts/jquery.validate-vsdoc.js">
+      <publishTime>02/13/2012 12:55:24</publishTime>
+    </File>
+    <File Include="Scripts/jquery.validate.js">
+      <publishTime>02/13/2012 12:55:24</publishTime>
+    </File>
+    <File Include="Scripts/jquery.validate.min.js">
+      <publishTime>02/13/2012 12:55:24</publishTime>
+    </File>
+    <File Include="Scripts/jquery.validate.unobtrusive.js">
+      <publishTime>02/13/2012 12:55:24</publishTime>
+    </File>
+    <File Include="Scripts/jquery.validate.unobtrusive.min.js">
+      <publishTime>02/13/2012 12:55:24</publishTime>
+    </File>
+    <File Include="Scripts/MicrosoftAjax.debug.js">
+      <publishTime>02/13/2012 12:55:24</publishTime>
+    </File>
+    <File Include="Scripts/MicrosoftAjax.js">
+      <publishTime>02/13/2012 12:55:24</publishTime>
+    </File>
+    <File Include="Scripts/MicrosoftMvcAjax.debug.js">
+      <publishTime>02/13/2012 12:55:24</publishTime>
+    </File>
+    <File Include="Scripts/MicrosoftMvcAjax.js">
+      <publishTime>02/13/2012 12:55:24</publishTime>
+    </File>
+    <File Include="Scripts/MicrosoftMvcValidation.debug.js">
+      <publishTime>02/13/2012 12:55:24</publishTime>
+    </File>
+    <File Include="Scripts/MicrosoftMvcValidation.js">
+      <publishTime>02/13/2012 12:55:24</publishTime>
+    </File>
+    <File Include="Views/Account/ChangePassword.cshtml">
+      <publishTime>02/13/2012 12:55:24</publishTime>
+    </File>
+    <File Include="Views/Account/ChangePasswordSuccess.cshtml">
+      <publishTime>02/13/2012 12:55:24</publishTime>
+    </File>
+    <File Include="Views/Account/LogOn.cshtml">
+      <publishTime>02/13/2012 12:55:24</publishTime>
+    </File>
+    <File Include="Views/Account/Register.cshtml">
+      <publishTime>02/13/2012 12:55:24</publishTime>
+    </File>
+    <File Include="Views/Home/About.cshtml">
+      <publishTime>02/13/2012 12:55:24</publishTime>
+    </File>
+    <File Include="Views/Home/Index.cshtml">
+      <publishTime>08/23/2012 20:19:37</publishTime>
+    </File>
+    <File Include="Views/Shared/Error.cshtml">
+      <publishTime>02/13/2012 12:55:24</publishTime>
+    </File>
+    <File Include="Views/Shared/_Layout.cshtml">
+      <publishTime>06/29/2012 11:01:55</publishTime>
+    </File>
+    <File Include="Views/Shared/_LogOnPartial.cshtml">
+      <publishTime>02/13/2012 12:55:24</publishTime>
+    </File>
+    <File Include="Views/Web.config">
+      <publishTime>02/13/2012 12:55:24</publishTime>
+    </File>
+    <File Include="Views/_ViewStart.cshtml">
+      <publishTime>02/13/2012 12:55:24</publishTime>
+    </File>
+    <File Include="Web.config">
+      <publishTime>06/29/2012 13:27:30</publishTime>
+    </File>
+  </ItemGroup>
+</Project>

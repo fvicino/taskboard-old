@@ -1,0 +1,5 @@
+C:\ProjectMojo\QuoforeConfig\POC\Taskboard\TaskBoard\TaskBoard\bin\TaskBoard.dll
+C:\ProjectMojo\QuoforeConfig\POC\Taskboard\TaskBoard\TaskBoard\bin\TaskBoard.pdb
+C:\ProjectMojo\QuoforeConfig\POC\Taskboard\TaskBoard\TaskBoard\obj\Debug\ResolveAssemblyReference.cache
+C:\ProjectMojo\QuoforeConfig\POC\Taskboard\TaskBoard\TaskBoard\obj\Debug\TaskBoard.dll
+C:\ProjectMojo\QuoforeConfig\POC\Taskboard\TaskBoard\TaskBoard\obj\Debug\TaskBoard.pdb

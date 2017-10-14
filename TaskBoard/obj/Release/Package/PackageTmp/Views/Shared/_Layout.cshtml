@@ -1,0 +1,77 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>@ViewBag.Title</title>
+    <link href="@Url.Content("~/Content/Site.css")" rel="stylesheet" type="text/css" />
+    <script src="@Url.Content("~/Scripts/jquery-1.4.4.min.js")" type="text/javascript"></script>
+    <script type="text/javascript">
+        var foundElement = null;
+
+        document.onmousedown = removeShakey;
+
+        function removeShakey() {
+            if (foundElement != null) {
+                $(foundElement).removeClass("shakey");
+            }       
+        }
+
+        $(document).ready(function () {
+
+            $("#searchBox").change(function () {
+                removeShakey();
+                var txt = $(this).val();
+                if (txt) {
+                    foundElement = $("#" + txt);
+                    if (foundElement) {
+                        $(foundElement).addClass("shakey");
+                    }
+                }
+                $(this).val("");
+            });
+
+        });
+
+
+        function save(id, x, y, tran) {
+            var urlsave = '@Url.Action("SaveViewState")';
+            $.ajax({
+                type: "POST",
+                url: urlsave,
+                data: { ID: id, X: x, Y: y, Transform: tran },
+                success: function (returndata) {
+                    //do something here
+                }
+            });
+        }
+    </script>
+    <script src="@Url.Content("~/Scripts/DragDrop.js")" type="text/javascript"></script>
+</head>
+
+<body>
+    <div class="page">
+        <div id="header">
+            <div id="title">
+                <h1 style="float:left">
+                    <label>Mojo Taskboard</label>
+                </h1>
+                <div style="margin-top:10px; font-family: 'comic Sans MS'; font-size:small;" >
+                    <div style="float:left; margin-left:50px;  font-size: x-small;">@Html.ActionLink("Reset View State", "ClearState", "Home")</div>
+                    <input  id="searchBox" style="float:right; margin-left: 50px;" />
+                    <div style="float:right;  ">
+                        <a target="_blank" href="http://ap-syd-tfs/sites/Mojo/QuoforeProduct/_layouts/tswa/UI/Pages/WorkItems/WorkItemEdit.aspx?wit=Task">Create Task</a>
+                    </div>
+                    <div style="float:right; margin-right: 30px; ">
+                        <a target="_blank"  href="http://ap-syd-tfs/sites/Mojo/QuoforeProduct/_layouts/tswa/UI/Pages/WorkItems/WorkItemEdit.aspx?wit=Bug">Create Bug</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="main">
+            @RenderBody()
+            <div id="footer">
+            </div>
+        </div>
+    </div>
+</body>
+</html>

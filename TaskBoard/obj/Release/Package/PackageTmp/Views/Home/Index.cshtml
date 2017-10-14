@@ -1,0 +1,135 @@
+﻿@inherits System.Web.Mvc.WebViewPage<List<TaskBoard.Models.TaskStickyNote>>
+@{
+    const int CEILING = 50;
+    const int NOTEWIDTH = 125;
+    const int PROJECTGAP = 30;
+    const int MAXSCREENHIEGHT = 700;
+    const int RANDOMMIN = 5;
+    const int RANDOMMAX = 20;
+    const int HEADERHEIGHT = 30;
+    const string TRANSFORMLEFT = "transformed-left";
+    const string TRANSFORMRIGHT = "transformed-right";
+    const string STATEACTIVE = "Active";
+    const string WORKITEMTYPE_BUG = "Bug";
+    
+    ViewBag.Title = "TaskBoard";
+        
+    var project ="";
+    int y = CEILING, x = 5;
+    var rand = new Random((int)DateTime.Now.ToFileTime());
+    string sx, sy, currentState = STATEACTIVE;
+    bool assigned=false, inprogess=false;
+
+    <div class="project-header" style="top: @(y)px; left: @(x)px; height:@(HEADERHEIGHT)" >Unassigned</div>
+    
+    foreach (var i in Model)
+    {
+
+        if (!assigned && i.AssignedTo.Length > 0)
+        {
+            x = x + NOTEWIDTH + rand.Next(RANDOMMIN, RANDOMMAX) + PROJECTGAP;
+            y = CEILING;
+
+            <div class="project-header" style="top: @(y)px; left: @(x)px; height:@(HEADERHEIGHT)" >Assigned</div>
+
+            y = CEILING + HEADERHEIGHT + rand.Next(RANDOMMIN, RANDOMMAX);
+            project = i.Project;
+
+            assigned = true;
+        }
+        else if (!inprogess && i.RemainingTime.Length > 0)
+        {
+            x = x + NOTEWIDTH + rand.Next(RANDOMMIN, RANDOMMAX);
+            y = CEILING;
+
+            inprogess = true;
+        }
+        else if (currentState != i.State)
+        {
+            x = x + NOTEWIDTH + rand.Next(RANDOMMIN, RANDOMMAX) + PROJECTGAP;
+            y = CEILING;
+
+            y = CEILING + HEADERHEIGHT + rand.Next(RANDOMMIN, RANDOMMAX);
+            project = i.Project;
+            currentState = i.State;
+        }
+
+        else
+        {
+            if (y + NOTEWIDTH + RANDOMMAX > MAXSCREENHIEGHT)
+            {
+                x = x + NOTEWIDTH + rand.Next(RANDOMMIN, RANDOMMAX);
+                y = CEILING + rand.Next(RANDOMMIN, RANDOMMAX);
+            }
+            else
+            {
+                y = y + NOTEWIDTH + rand.Next(RANDOMMIN, RANDOMMAX);
+            }
+        }
+
+        //prep values for use in html
+        sx = x.ToString() + "px";
+        sy = y.ToString() + "px";
+        var tr = rand.Next(RANDOMMIN, RANDOMMAX);
+        string transform = tr > RANDOMMAX - 5 ? TRANSFORMRIGHT : "";
+        transform = tr < RANDOMMIN + 5 ? TRANSFORMLEFT : transform;
+
+        //swap for stored state if it exists
+        if (i.X != null) { sx = i.X; }
+        if (i.Y != null) { sy = i.Y; }
+        if (i.Transform != null) { transform = i.Transform; }
+
+        TaskBoard.StateManager.SetState(i.ID, sx, sy, transform);
+
+        var state = "";
+        if (i.State == "Active")
+        {
+            if (i.RemainingTime.ToString().IsEmpty()
+                || (i.RemainingTime.ToString() == "0" && i.AssignedTo.ToString().IsEmpty())
+                || (i.RemainingTime.ToString() == i.OriginalEstimate)
+                || ( (i.OriginalEstimate == string.Empty || i.OriginalEstimate == "0") && (i.RemainingTime.ToString() == string.Empty || i.RemainingTime.ToString()=="0"))
+                || (i.RemainingTime.ToString() == "0" && i.WorkItemType == WORKITEMTYPE_BUG)
+               )
+            {
+                i.RemainingTime = "";
+                state = "stickynotenotstarted";
+            }
+            else
+            {
+                state = "stickynote";
+            }
+        }
+        else if (i.State == "Resolved")
+        {
+            state = "stickynoteresolved";
+        }
+        else
+        {
+            state = "stickynotecomplete";
+        }
+
+        var h4 = i.RemainingHoursHistory.Count > 1 ? i.RemainingHoursHistory[1] : String.Empty;
+        var h3 = i.RemainingHoursHistory.Count > 2 ? i.RemainingHoursHistory[2] : String.Empty;
+        var h2 = i.RemainingHoursHistory.Count > 3 ? i.RemainingHoursHistory[3] : String.Empty;
+        
+        
+    <div id="@i.ID" class="@(state) @(transform)" style="top: @(sy); left: @(sx)" onmousedown='dragObject = this;dragObject.style.zIndex = dragObject_zindex;dragObject_zindex++;mouseOffset = getMouseOffset(this, event); if(mouseOffset.x>166 && mouseOffset.y>178){ dragObject=null;  } return false;' >
+        <p id="notetitle">@i.Title</p>
+        <a href="@i.EditURL" target="_blank" >edit</a><label style="float:right; color:Black">@i.ID.ToString()</label>
+        <div id='name'>@i.AssignedToDisplay </div> 
+        @{
+            if (i.WorkItemType == WORKITEMTYPE_BUG)
+            {
+                <img alt="_blank" src="../../Content/bug.png" height="11px" width="11px" />
+            }
+        }
+        <div id='h1'>@i.OriginalEstimate</div>
+        <div id='h4'>@h4</div>
+        <div id='h3'>@h3</div>
+        <div id='h2'>@h2</div>
+        <div id='remaining' >@i.RemainingTime</div> 
+    </div>
+   
+   
+    }
+}
